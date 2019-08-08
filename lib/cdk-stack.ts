@@ -10,7 +10,7 @@ export class CdkStack extends cdk.Stack {
     super(scope, id, props);
    
     const vpc =  ec2.Vpc.fromLookup(this, "VPC", {
-      tags: {"Name": "VpcStack/VPC"}
+      tags: {"Name": "mtg/default"}
     });
     
     const cluster  = new ecs.Cluster(this, "Cluster", {
@@ -24,7 +24,7 @@ export class CdkStack extends cdk.Stack {
       publicLoadBalancer: true,
       image: ecs.ContainerImage.fromRegistry("amazon/amazon-ecs-sample"),
     });
-
+    
     const internal_lb = new elbv2.ApplicationLoadBalancer(this, 'LB', {
       vpc,
       internetFacing: false
