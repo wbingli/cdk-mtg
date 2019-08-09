@@ -22,9 +22,10 @@ export class CdkStack extends cdk.Stack {
       memoryLimitMiB: 1024,
       cpu: 512,
       publicLoadBalancer: true,
-      image: ecs.ContainerImage.fromRegistry("amazon/amazon-ecs-sample"),
+      image: ecs.ContainerImage.fromRegistry('amazon/amazon-ecs-sample')
     });
-    
+
+
     const internal_lb = new elbv2.ApplicationLoadBalancer(this, 'LB', {
       vpc,
       internetFacing: false
