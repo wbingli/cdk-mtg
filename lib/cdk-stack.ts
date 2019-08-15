@@ -10,7 +10,7 @@ export class CdkStack extends cdk.Stack {
     super(scope, id, props);
    
     const vpc =  ec2.Vpc.fromLookup(this, "VPC", {
-      tags: {"Name": "mtg/default"}
+      tags: {"Name": "Dev"}
     });
     
     const cluster  = new ecs.Cluster(this, "Cluster", {
@@ -33,7 +33,7 @@ export class CdkStack extends cdk.Stack {
 
     const listener = internal_lb.addListener('Listener', {
       port: 80,
-      open: true,
+      open: true
     });
 
     listener.addTargets("ECSTG", {

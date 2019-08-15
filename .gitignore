@@ -9,3 +9,4 @@ cdk.out
 # IDE
 .idea
 
+cdk.context.json
